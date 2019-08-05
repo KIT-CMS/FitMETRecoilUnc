@@ -16,7 +16,7 @@ Before creating datacards, please copy root files with input shapes into the [sh
 ```bash
 htt_mm.inputs-sm-Run${YEAR}-ML-${VARIABLE}.root
 ```
-Prepare inputs for `YEAR` in `2016 2017 2018` and the MET component parallel to Z `$p_{T}$`, called e.g. `metParToZ`.
+Prepare inputs for `YEAR` in `2016 2017 2018` and the MET component parallel to Z $`\vec{p}_{T}`$, called e.g. `metParToZ`.
 
 The files must contain the following categories as folders:
  * `mm_0jet`
@@ -76,7 +76,7 @@ combineTool.py -M FitDiagnostics -d output_*/Run201*/*/combined.txt.cmb.root --t
 
 ### Calculating total values of the uncertainties
 
-As a final step, the total uncertainty for scale and resolution is determined for each category. The computation follows this formula: `$10\% \cdot \sqrt{\text{pull}^2 + \text{constraint}^2}$`.
+As a final step, the total uncertainty for scale and resolution is determined for each category. The computation follows this formula: $`10\% \cdot \sqrt{\text{pull}^2 + \text{constraint}^2}`$.
 The calulcation is performed with the [determine_recoiluncs.py](https://github.com/KIT-CMS/FitMETRecoilUnc/blob/master/scripts/determine_recoiluncs.py) script. To perform the computation for all years and MET definitions, execute:
 
 ```bash
