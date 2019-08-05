@@ -90,3 +90,14 @@ done
 ```
 
 This will create `.json` files in the `output_${var}/Run${year}/` directories, which can be used further to define final recoil correction uncertainties
+
+### Producing postfit and prefit shapes
+
+To check, how the fit changes the distributions, the following command can be used to obtain postift and prefit shapes:
+
+```bash
+for cf in `ls output_*metParToZ/Run201*/mm*/ -d`;
+do
+    PostFitShapesFromWorkspace -w ${cf}combined.txt.cmb.root --postfit -f ${cf}fitDiagnostics.Test.root:fit_s -o ${cf}postfit_shapes.root
+done
+```
