@@ -70,7 +70,7 @@ combineTool.py -M T2W -i output_*/Run201*/mm*/ --parallel 10
 To constrain the MET recoil uncertainties, a maximum likelihood fit is performed, with `ZL` as signal with a floating signal strength `r` in order to cover normalization effects. The recoil uncertainties are treated as nuisances. Execute the following command for the fit:
 
 ```bash
-combineTool.py -M FitDiagnostics -d output_*/Run201*/*/combined.txt.cmb.root --there
+combineTool.py -M FitDiagnostics -d output_*/Run201*/*/combined.txt.cmb.root --there --parallel 10
 ```
 
 
@@ -98,6 +98,6 @@ To check, how the fit changes the distributions, the following command can be us
 ```bash
 for cf in `ls output_*metParToZ/Run201*/mm*/ -d`;
 do
-    PostFitShapesFromWorkspace -w ${cf}combined.txt.cmb.root --postfit -f ${cf}fitDiagnostics.Test.root:fit_s -o ${cf}postfit_shapes.root
+    PostFitShapesFromWorkspace -w ${cf}combined.txt.cmb.root -d ${cf}combined.txt.cmb  --postfit -f ${cf}fitDiagnostics.Test.root:fit_s -o ${cf}postfit_shapes.root
 done
 ```
