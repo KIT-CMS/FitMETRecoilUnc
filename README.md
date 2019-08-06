@@ -50,7 +50,7 @@ The first step of datacard creation is covered by the [MorphingMETRecoil](https:
 ```bash
 for var in metParToZ puppimetParToZ;
 do
-    for year in 2016 2017 2018;
+    for year in $(seq 2016 2018);
     do
         MorphingMETRecoil --era=${year} --variable=${var}
     done
